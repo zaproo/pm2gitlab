@@ -1,0 +1,57 @@
+<% content_for :header_tags do %>
+  <script type="text/javascript">
+    jQuery(function($) {
+      $("#settings form").attr('action', '/pm2gitlab_settings/update_common_data');
+    });
+  </script>
+<% end %>
+
+<div class="form--field">
+  <%= styled_label_tag("settings[pm2gitlab_url]", l(:pm2gitlab_url)) %>
+  <%= styled_text_field_tag("settings[pm2gitlab_url]", settings['pm2gitlab_url']) %>
+</div>
+
+<div class="form--field">
+  <%= styled_label_tag("settings[pm2gitlab_token]", l(:pm2gitlab_token)) %>
+  <%= styled_text_field_tag("settings[pm2gitlab_token]", settings['pm2gitlab_token']) %>
+</div>
+
+</br>
+<h3 class="attributes-group--header-text ng-binding">User map table</h3>
+</br>
+<table class="font-22">
+  <thead>
+    <tr>
+      <th>
+        <div class="generic-table--sort-header-outer">
+          <div class="generic-table--sort-header">
+            <span>
+              PM login
+            </span>
+          </div>
+        </div>
+      </th>
+      <th>
+        <div class="generic-table--sort-header-outer">
+          <div class="generic-table--sort-header">
+            <span>
+              gitlab name
+            </span>
+          </div>
+        </div>
+      </th>
+    </tr>
+    </thead>
+  <tbody>
+    <%= fields_for(:pm2gitlab_users) do |data_fields| %>
+      <% User.active.each do |user| %>
+        <%= data_fields.fields_for(user.login, user.pm2gitlab_user || Pm2gitlabUser.new(user: user)) do |fields| %>
+          <tr>
+            <td><%= user.login %></td>
+            <td><%= fields.text_field(:name) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

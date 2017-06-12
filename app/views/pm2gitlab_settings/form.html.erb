@@ -1,0 +1,32 @@
+<% html_title(l(:label_pm2gitlab_setting)) %>
+
+<%= styled_form_tag(controller: :pm2gitlab_settings, action: :update_data, project_id: @project.id) do %>
+
+  <h1><%=l(:label_pm2gitlab_setting)%></h1>
+
+  <p>
+    <div class="form--field">
+      <%= styled_label_tag("data[pm2gitlab_project]", l(:pm2gitlab_project)) %>
+      <%= styled_text_field_tag("data[pm2gitlab_project]", @data[:pm2gitlab_project]) %>
+    </div>
+    <div class="form--field">
+      <%= styled_label_tag("data[pm2gitlab_target_branch]", l(:pm2gitlab_target_branch)) %>
+      <%= styled_text_field_tag("data[pm2gitlab_target_branch]", @data[:pm2gitlab_target_branch]) %>
+    </div>
+    <div class="form--field">
+      <%= styled_label_tag 'data[pm2gitlab_assignee_id]', l(:pm2gitlab_assignee) %>
+      <div class="form--field-container">
+        <%= styled_select_tag 'data[pm2gitlab_assignee_id]', options_from_collection_for_select(@data[:users], 'id', 'name', @data[:pm2gitlab_assignee_id]), prompt: "Select user ..." %>
+      </div>
+    </div>
+    <div class="form--field">
+      <%= styled_label_tag 'data[pm2gitlab_status_id]', l(:pm2gitlab_status) %>
+      <div class="form--field-container">
+        <%= styled_select_tag 'data[pm2gitlab_status_id]', options_from_collection_for_select(@data[:statuses], 'id', 'name', @data[:pm2gitlab_status_id]), prompt: "Select status ..." %>
+      </div>
+    </div>
+    </br>
+    <%= styled_button_tag(l(:button_save), class: '-highlight -with-icon icon-checkmark') %>
+  </p>
+
+<% end %>

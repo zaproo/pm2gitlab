@@ -1,0 +1,9 @@
+en:
+  label_pm2gitlab_setting: Gitlab Settings
+  pm2gitlab_settings_updated_successfully: Gitlab settings updated successfully
+  pm2gitlab_token: Token
+  pm2gitlab_url: Url (e.g. https://git.zaproo.net)
+  pm2gitlab_target_branch: Target branch (e.g. master)
+  pm2gitlab_project: Project ID (e.g. zaproo/project1)
+  pm2gitlab_assignee: Merger request user
+  pm2gitlab_status: Status (for creating merger request)
