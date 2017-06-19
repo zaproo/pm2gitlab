@@ -20,7 +20,6 @@ module OpenProject::Pm2gitlab::Patches::WorkPackagePatch
 
     def notification_allowed?
       OpenProject::Pm2gitlab::Engine.enabled? &&
-      project.pm2gitlab_project.present? &&
       project.pm2gitlab_target_branch.present? &&
       current_journal.present? &&
       status_id_changed? &&

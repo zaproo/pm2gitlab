@@ -4,11 +4,10 @@ class Pm2gitlabSettingsController < ApplicationController
 
   def get_data
     @data = {}
-    @data[:pm2gitlab_project] = @project.pm2gitlab_project
     @data[:pm2gitlab_target_branch] = @project.pm2gitlab_target_branch
     @data[:pm2gitlab_assignee_id] = @project.pm2gitlab_assignee_id
     @data[:pm2gitlab_status_id] = @project.pm2gitlab_status_id
-    @data[:users] = User.where(type: "User").all
+    @data[:users] = Principal.where(type: 'User').active.in_project(@project)
     @data[:statuses] = Status.all
     render 'pm2gitlab_settings/form'
   end
@@ -28,7 +27,6 @@ class Pm2gitlabSettingsController < ApplicationController
 
   private def update_settings
     data = params[:data]
-    @project.pm2gitlab_project = data[:pm2gitlab_project]
     @project.pm2gitlab_target_branch = data[:pm2gitlab_target_branch]
     @project.pm2gitlab_assignee_id = data[:pm2gitlab_assignee_id]
     @project.pm2gitlab_status_id = data[:pm2gitlab_status_id]
