@@ -6,3 +6,4 @@ en:
   pm2gitlab_target_branch: Target branch (e.g. master)
   pm2gitlab_assignee: Merger request user
   pm2gitlab_status: Status (for creating merger request)
+  pm2gitlab_incoming_hooks_tokens: Incoming Tokens (separated by space)

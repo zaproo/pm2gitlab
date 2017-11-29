@@ -16,6 +16,11 @@
   <%= styled_text_field_tag("settings[pm2gitlab_token]", settings['pm2gitlab_token']) %>
 </div>
 
+<div class="form--field">
+  <%= styled_label_tag("settings[pm2gitlab_incoming_hooks_tokens]", l(:pm2gitlab_incoming_hooks_tokens)) %>
+  <%= styled_text_field_tag("settings[pm2gitlab_incoming_hooks_tokens]", settings['pm2gitlab_incoming_hooks_tokens']) %>
+</div>
+
 </br>
 <h3 class="attributes-group--header-text ng-binding">User map table</h3>
 </br>
