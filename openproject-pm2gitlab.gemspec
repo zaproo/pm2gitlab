@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = OpenProject::Pm2gitlab::VERSION
   s.authors     = "Zaproo"
   s.email       = "zaproo@zaproo.com"
-  s.homepage    = "https://git.zaproo.net/zaproo/pm2gitlab"
+  s.homepage    = "https://github.com/zaproo/pm2gitlab"
   s.summary     = 'OpenProject GitLab integration'
   s.description = "GitLab integration for OpenProject"
   s.license     = "MIT"
