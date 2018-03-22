@@ -18,7 +18,7 @@ To include the new plugin into OpenProject, you have to add it into Gemfile.plug
 
 ```
 group :opf_plugins do
-  gem "openproject-pm2gitlab", git: "https://git.zaproo.net/zaproo/pm2gitlab.git", :branch => "master"
+  gem "openproject-pm2gitlab", git: "https://github.com/zaproo/pm2gitlab.git", :branch => "master"
 end
 ```
 
