@@ -1,4 +1,4 @@
-# OpenProject Gitlab Plugin
+# OpenProject Gitlab Plugin (Latest supported version: 7.4.4)
 
 [OpenProject](https://www.openproject.org) plugin makes integration with [Gitlab](https://gitlab.com):
 - creates Merge Request on changing task status to defined as 'merger request' (you can define trigger task by your own)
